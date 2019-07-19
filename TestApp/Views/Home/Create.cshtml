@@ -15,12 +15,12 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             @Html.LabelFor(x => x.FromDate)
-            @Html.TextBoxFor(x => x.FromDate, new { @class = "form-control" })
+            @Html.TextBoxFor(x => x.FromDate, "{0:MM/dd/yyyy}", new { @class = "form-control" })
             @Html.ValidationMessageFor(x => x.FromDate)
         </div>
         <div class="form-group col-md-6">
             @Html.LabelFor(x => x.ToDate)
-            @Html.TextBoxFor(x => x.ToDate, new { @class = "form-control" })
+            @Html.TextBoxFor(x => x.ToDate, "{0:MM/dd/yyyy}",  new { @class = "form-control" })
             @Html.ValidationMessageFor(x => x.ToDate)
         </div>
     </div>
@@ -41,7 +41,7 @@
         </div>
         <div class="form-group col-md-6">
             @Html.LabelFor(x => x.Birthday)
-            @Html.TextBoxFor(x => x.Birthday, new { @class = "form-control" })
+            @Html.TextBoxFor(x => x.Birthday, "{0:MM/dd/yyyy}", new { @class = "form-control" })
         </div>
     </div>
     <div class="form-row">

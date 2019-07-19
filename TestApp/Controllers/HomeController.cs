@@ -12,7 +12,22 @@ namespace TestApp.Controllers
         public ActionResult Index()
         {
             var model = (IndexViewModel)Session["SavedRecords"];
-            return View(model);//COmment
+            //var model = new IndexViewModel();
+            //model.formRecords.Add(new FormRecord
+            //{
+            //    Id = 1,
+            //    FirstName = "Brian",
+            //    LastName = "Chiang",
+            //    UserName = "blah",
+            //    Password = "blah",
+            //    FromDate = DateTime.Now,
+            //    ToDate = DateTime.Now,
+            //    Email = "blah@blah.com",
+            //    Birthday = DateTime.Now,
+            //    FavoriteDrink = "Fanta",
+            //    FavoriteNumber = 1
+            //});
+            return View(model);
         }
 
         public ActionResult Create()
@@ -25,7 +40,33 @@ namespace TestApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                return RedirectToAction("View");
+                int id = 1;
+                var currentTable = (IndexViewModel)Session["SavedRecords"];
+                if (currentTable != null)
+                {
+                    id = currentTable.formRecords.Count + 1;
+                }
+                else
+                {
+                    currentTable = new IndexViewModel();
+                }
+
+                currentTable.formRecords.Add(new FormRecord
+                {
+                    Id = id,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    UserName = model.UserName,
+                    Password = model.Password,
+                    FromDate = model.FromDate,
+                    ToDate = model.ToDate,
+                    Email = model.Email,
+                    Birthday = model.Birthday,
+                    FavoriteDrink = model.FavoriteDrink,
+                    FavoriteNumber = model.FavoriteNumber
+                });
+                Session["SavedRecords"] = currentTable;
+                return RedirectToAction("Index");
             }
             return View(model);
         }

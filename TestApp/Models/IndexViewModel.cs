@@ -7,7 +7,7 @@ namespace TestApp.Models
 {
     public class IndexViewModel
     {
-        public List<FormRecord> formRecords { get; set; }
+        public List<FormRecord> formRecords { get; set; } = new List<FormRecord>();
     }
 
     public class FormRecord

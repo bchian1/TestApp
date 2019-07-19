@@ -40,6 +40,7 @@
     <table class="table table-dark">
         <thead>
             <tr>
+                <th scope="col">Id</th>
                 <th scope="col">First</th>
                 <th scope="col">Last</th>
                 <th scope="col">Username</th>
@@ -61,10 +62,10 @@
                     <td>@item.LastName</td>
                     <td>@item.UserName</td>
                     <td>@item.Password</td>
-                    <td>@item.FromDate</td>
-                    <td>@item.ToDate</td>
+                    <td>@item.FromDate.ToShortDateString()</td>
+                    <td>@item.ToDate.ToShortDateString()</td>
                     <td>@item.Email</td>
-                    <td>@item.Birthday</td>
+                    <td>@item.Birthday.ToShortDateString()</td>
                     <td>@item.FavoriteDrink</td>
                     <td>@item.FavoriteNumber</td>
                 </tr>
