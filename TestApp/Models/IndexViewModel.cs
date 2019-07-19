@@ -12,6 +12,7 @@ namespace TestApp.Models
 
     public class FormRecord
     {
+        public int Id { get; set; }
         public string FirstName { get; set; }
 
         public string LastName { get; set; }

@@ -11,8 +11,8 @@ namespace TestApp.Controllers
     {
         public ActionResult Index()
         {
-            Session["SavedRecords"] = 
-            return View();
+            var model = (IndexViewModel)Session["SavedRecords"];
+            return View(model);
         }
 
         public ActionResult Create()
