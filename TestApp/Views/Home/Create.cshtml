@@ -1,0 +1,58 @@
+﻿@model TestApp.Models.CreateViewModel
+<form method="post" action="@Url.Action("Create", "Home")">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @Html.LabelFor(x => x.FirstName)
+            @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.FirstName)
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(x => x.LastName)
+            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.LastName)
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @Html.LabelFor(x => x.FromDate)
+            @Html.TextBoxFor(x => x.FromDate, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.FromDate)
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(x => x.ToDate)
+            @Html.TextBoxFor(x => x.ToDate, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.ToDate)
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @Html.LabelFor(x => x.UserName)
+            @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(x => x.Password)
+            @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @Html.LabelFor(x => x.Email)
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(x => x.Birthday)
+            @Html.TextBoxFor(x => x.Birthday, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @Html.LabelFor(x => x.FavoriteDrink)
+            @Html.TextBoxFor(x => x.FavoriteDrink, new { @class = "form-control" })
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(x => x.FavoriteNumber)
+            @Html.TextBoxFor(x => x.FavoriteNumber, new { @class = "form-control" })
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
