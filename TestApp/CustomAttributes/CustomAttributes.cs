@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace TestApp.CustomAttributes
 {
@@ -11,7 +12,7 @@ namespace TestApp.CustomAttributes
 
     }
 
-    public class LastNameNotDavis : ValidationAttribute
+    public class LastNameNotDavis : ValidationAttribute, IClientValidatable
     {
         public string LastName { get; set; }
 
@@ -26,6 +27,15 @@ namespace TestApp.CustomAttributes
             if (String.IsNullOrWhiteSpace(strValue))
                 return true;
             return strValue.ToLower() != "davis";
+        }
+
+        public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, ControllerContext context)
+        {
+            yield return new ModelClientValidationRule
+            {
+                ErrorMessage = this.ErrorMessage,
+                ValidationType = "lastnamenotdavis"
+            };
         }
     }
 
@@ -47,6 +57,15 @@ namespace TestApp.CustomAttributes
             }
             var date = new DateTime(2017, 5, 1); // May 2017
             return dateValue.Value < date;
+        }
+
+        public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, ControllerContext context)
+        {
+            yield return new ModelClientValidationRule
+            {
+                ErrorMessage = this.ErrorMessage,
+                ValidationType = "datebeforemay2017only"
+            };
         }
     }
 
